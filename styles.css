@@ -14,8 +14,6 @@
     background: red;
 }
 
-.button{
-    display: flex;
-    position: relative;
-
+.btn_all{
+    text-align: center;
 }

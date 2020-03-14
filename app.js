@@ -1,26 +1,29 @@
 const loadingBarItemEl = document.querySelector(".loading-bar__item");
+const thirtyEl = document.querySelector(".btn_thirty");
+const sixtyEl = document.querySelector(".btn_sixty");
+const hundredEl = document.querySelector(".btn_hundred");
 
-// console.log(loadingBarItemEl);
 
-// let count = 0;
-
-// let incrementor = setInterval(function() {
-//     if (count === 10){
-//         clearInterval(incrementor);
-//     }
-//     else{
-//     count++;
-//     console.log(count);
-//     }
-// }, 1000);
-
-let width = 1;
-let loadingBar =  setInterval(function (){
-    if (width >= 100){
+function startBar(percent){
+    let width = 1;
+    loadingBarItemEl.style.width = 5  + "%";
+   let loadingBar = setInterval(function (){
+    if (width >= percent){
         clearInterval(loadingBar);
     } else{
         width++;
         loadingBarItemEl.style.width = width + "%";
     }
 
-}, 10)
+}, 50)
+
+}
+
+function changeLoadingBar(){
+    thirtyEl.addEventListener("click", () => startBar(30));
+    sixtyEl.addEventListener("click", () => startBar(60));
+    hundredEl.addEventListener("click", () => startBar(100));
+
+}
+
+changeLoadingBar();
